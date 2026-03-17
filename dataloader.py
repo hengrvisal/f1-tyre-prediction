@@ -1,9 +1,15 @@
 import time
 import fastf1
 import pandas as pd
+import os
 
 from data_processing import clean_race_data
 from fastf1.exceptions import RateLimitExceededError
+
+cache_dir = "cache/cache_data"
+if not os.path.exists(cache_dir):
+    os.makedirs(cache_dir)
+fastf1.Cache.enable_cache(cache_dir)
 
 def build_dataset(year_range=(2022, 2023)):
     all_frames = []

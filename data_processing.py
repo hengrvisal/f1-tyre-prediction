@@ -26,7 +26,7 @@ def clean_race_data(year, race_name):
     fuel_time_per_kg = 0.035
 
     fuel_correction = df['LapNumber'] * fuel_per_lap * fuel_time_per_kg
-    df['FuelCorrectionLapTime'] = df['LapTime'] + fuel_correction
+    df['FuelCorrectedLapTime'] = df['LapTime'] + fuel_correction
 
     # add identifiers
     df['Circuit'] = session.event['EventName']
